@@ -37,7 +37,7 @@ header div#search{
     align-items: center;
     color: #424242;
     border-radius: 10px;
-    z-index: 1;
+    z-index: 3;
 }
 
 header div#search img{
@@ -46,12 +46,18 @@ header div#search img{
     margin-right: 16px;
 }
 
-header div#search h4{
+header div#search input{
+    width: 90%;
     font-weight: bold;
     font-style: normal;
     font-family: 'Montserrat', 'Roboto', sans-serif;
     font-size: 1rem;
     margin-left: 16px;
+    border: 0px;
+}
+
+header div#search input:focus{
+    outline: none;
 }
 
 header div#account{
@@ -185,10 +191,25 @@ div.show-case{
     flex-direction: column;
 }
 
-.card img{
+div.show-case div.card div.image{
     width: 18vw;
     height: calc(18vw*9/16);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_header_poststreet_18276_ada305ce.jpeg?region=0,0,2048,879');
+    display: flex;
+    align-items: left;
+    justify-content: flex-end;
+
 }
+
+div.show-case div.card div.image img{
+    height: 24px;
+    width: 24px;
+    margin: 2px;
+}
+
 
 .card h5, .card p{
     margin: 4px;
@@ -227,6 +248,10 @@ footer div p{
     display: none;
 }
 
+.preferiti{
+    display: none;
+}
+
 
 /*Versione mobile*/
 @media (max-width: 950px) {
@@ -254,7 +279,7 @@ footer div p{
     div.show-case{
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: left;
     }
 
     .card{
@@ -264,10 +289,14 @@ footer div p{
         flex-direction: row;
     }
 
-    .card img{
+    div.show-case div.card div.image{
         margin-right: 8px;
         height: 24vh;
         width: calc(24vh*16/9);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url('https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_header_poststreet_18276_ada305ce.jpeg?region=0,0,2048,879');
     }
 
     header div#info{
@@ -330,6 +359,7 @@ footer div p{
     header div#overlay{
         display: none;
     }
+    
 
     header{
         position: fixed;
@@ -348,4 +378,7 @@ footer div p{
         box-shadow: 0px 0px 20px black;
     }
 
+    div.show-case{
+        align-items: center;
+    }
 }
