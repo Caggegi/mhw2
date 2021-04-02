@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8"/>
         <link href="mhw2.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,13 +13,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
         <script src="contents.js " defer></script>
         <script src="script.js" defer></script>
-        <meta charset="UTF-8"/>
     </head>
     <body>
         <header>
             <div id="overlay"></div>
             <div id="search">
-                <input type="text" placeholder="Cerca">
+                <input type="text" placeholder="Cerca" id="search">
                 </input>
                 <div>
                     <img src="https://raw.githubusercontent.com/Caggegi/mhw1/master/img/magnify.svg"/>
@@ -94,34 +94,25 @@
                 </div>
             </nav>
             <article id="video-frame">
-                <section class="genre, preferiti">
-                    <h2>
-                        Preferiti
-                    </h2>
-                    <div class="show-case">
-                        
-                    </div>
+                <section class="genre, hide" id="ricerca">
+                    <h2>Ricerca</h2>
+                    <div class="show-case"></div>
+                </section>
+                <section class="genre, hide" id="preferiti">
+                    <h2>Preferiti</h2>
+                    <div class="show-case"></div>
                 </section>
                 <section class="genre" id="film">
-                    <h2>
-                        Film
-                    </h2>
-                    <div class="show-case">
-                    </div>
+                    <h2>Film</h2>
+                    <div class="show-case"></div>
                 </section>
                 <section class="genre" id="musica">
-                    <h2>
-                        Musica
-                    </h2>
-                    <div class="show-case">
-                    </div>
+                    <h2>Musica</h2>
+                    <div class="show-case"></div>
                 </section>
                 <section class="genre" id="gameplay">
-                    <h2>
-                        Gameplay
-                    </h2>
-                    <div class="show-case">
-                    </div>
+                    <h2>Gameplay</h2>
+                    <div class="show-case"></div>
                 </section>  
             </article>
         </div>

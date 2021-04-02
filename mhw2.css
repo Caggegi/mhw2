@@ -46,7 +46,7 @@ header div#search img{
     margin-right: 16px;
 }
 
-header div#search input{
+header div#search input#search{
     width: 90%;
     font-weight: bold;
     font-style: normal;
@@ -240,8 +240,16 @@ footer div p{
     display: none;
 }
 
-.preferiti{
+.hide{
     display: none;
+}
+
+.show{
+    display: block;
+}
+
+.description{
+    max-width: 300px;
 }
 
 
@@ -276,7 +284,7 @@ footer div p{
 
     .card{
         margin: 8px;
-        height: 30vh;
+        margin-bottom: 16px;
         display: flex;
         flex-direction: row;
     }
@@ -342,7 +350,6 @@ footer div p{
 @media (max-width: 500px) {
     .card{
         margin: 8px;
-        height: 30vh;
         display: flex;
         flex-direction: column;
         margin-bottom: 10%;
