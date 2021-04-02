@@ -55,3 +55,78 @@ const gameplay = [
         creator: 'CD Projekt RED',
         descrizione: 'Descrizione...'
     }]
+
+    for(let elemento of film){
+        const sezione_film = document.querySelector("section#film div.show-case");
+        const carta = document.createElement("div");
+        carta.classList.add("card");
+        const immagine = document.createElement("img");
+        immagine.src = elemento.immagine;
+        immagine.classList.add("image");
+        const about = document.createElement("div");
+        const titolo = document.createElement("h5");
+        titolo.textContent=elemento.titolo;
+        const creator = document.createElement("p");
+        creator.textContent=elemento.creator;
+        const plus = document.createElement("img");
+        const info = document.createElement("img");
+        plus.src="img/heart-plus.svg";
+        info.src="img/information.svg";
+        about.appendChild(titolo);
+        about.appendChild(creator);
+        about.appendChild(plus);
+        about.appendChild(info);
+        carta.appendChild(immagine);
+        carta.appendChild(about);
+        sezione_film.appendChild(carta);
+    }
+
+    for(let elemento of musica){
+        const sezione_musica = document.querySelector("section#musica div.show-case");
+        const carta = document.createElement("div");
+        carta.classList.add("card");
+        const immagine = document.createElement("img");
+        immagine.src = elemento.immagine;
+        immagine.classList.add("image");
+        const about = document.createElement("div");
+        const titolo = document.createElement("h5");
+        titolo.textContent=elemento.titolo;
+        const creator = document.createElement("p");
+        creator.textContent=elemento.creator;
+        const plus = document.createElement("img");
+        const info = document.createElement("img");
+        plus.src="img/heart-plus.svg";
+        info.src="img/information.svg";
+        about.appendChild(titolo);
+        about.appendChild(creator);
+        about.appendChild(plus);
+        about.appendChild(info);
+        carta.appendChild(immagine);
+        carta.appendChild(about);
+        sezione_musica.appendChild(carta);
+    }
+
+    for(let elemento of gameplay){
+        const sezione_gameplay = document.querySelector("section#gameplay div.show-case");
+        const carta = document.createElement("div");
+        carta.classList.add("card");
+        const immagine = document.createElement("img");
+        immagine.src = elemento.immagine;
+        immagine.classList.add("image");
+        const about = document.createElement("div");
+        const titolo = document.createElement("h5");
+        titolo.textContent=elemento.titolo;
+        const creator = document.createElement("p");
+        creator.textContent=elemento.creator;
+        const plus = document.createElement("img");
+        const info = document.createElement("img");
+        plus.src="img/heart-plus.svg";
+        info.src="img/information.svg";
+        about.appendChild(titolo);
+        about.appendChild(creator);
+        about.appendChild(plus);
+        about.appendChild(info);
+        carta.appendChild(immagine);
+        carta.appendChild(about);
+        sezione_gameplay.appendChild(carta);
+    }
