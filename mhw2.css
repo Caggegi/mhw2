@@ -1,0 +1,351 @@
+@font-face{
+    font-family: 'SF_custom';
+    src: url("font/SF-UI-Display-Regular.otf");
+}
+
+body{
+    background-color: #151515;
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    color: #fff;
+    padding: 0px;
+}
+
+header{
+    background-image: url(https://9to5mac.com/wp-content/uploads/sites/6/2020/10/The-Lake-5-dragged.jpg?quality=82&strip=all&w=1000);
+    height: 40vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px black;
+}
+
+header div#info{
+    position: relative;
+}
+
+header div#search{
+    background-color: #fff;
+    display: flex;
+    width: 50%;
+    height: 6vh;
+    padding: 2px;
+    justify-content: space-between;
+    align-items: center;
+    color: #424242;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+header div#search img{
+    height: 3.5vh;
+    width: 3.5vh;
+    margin-right: 16px;
+}
+
+header div#search h4{
+    font-weight: bold;
+    font-style: normal;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-left: 16px;
+}
+
+header div#account{
+    font-style: normal;
+    font-family: 'SF_custom', 'Roboto', sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: absolute;
+    bottom: -20vh;
+    right: -23vw;
+    text-align: right;
+}
+
+header div#account img{
+    height: 10vh;
+    margin-left: 8px;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+header div#overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    height: 40vh;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/*navigation*/
+
+nav{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    margin-right: 16px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    z-index: 0;
+    width: 20%;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    background-color: #101010;
+    flex-grow: 1;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+nav h4{
+    font-size: 1rem;
+}  
+
+nav img{
+    height: 5vh;
+    margin-right: 8px;
+}
+
+nav div.nav_button{
+    width: 100%;
+    padding: 2px 0px 2px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: -2px;
+    color: white;
+}
+
+nav div.nav_button:hover{
+    color: #101010;
+    font-style: oblique;
+    background-color: white;
+}
+
+
+
+div#main nav div div.subscription{
+    display: flex;
+    align-items: center;
+    padding:8px;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+div#main nav div div.subscription img{
+    border: 2px solid rgb(221, 8, 139);
+    margin: 8px;
+    border-radius: 100%;
+}
+
+div#main{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/*section principale*/
+
+div#main article#video-frame{
+    width: 80%;
+}
+
+div#main article#video-frame h2{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1.8rem;
+}
+
+div.show-case{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 10vh;
+}
+
+.card{
+    margin: 8px;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img{
+    width: 18vw;
+    height: calc(18vw*9/16);
+}
+
+.card h5, .card p{
+    margin: 4px;
+    font-family: 'PT Sans', 'Roboto',sans-serif;
+    font-style: normal;
+}
+
+.card h5{
+    font-weight: bold;
+    font-stretch: expanded;
+    font-size: 1.3rem;
+}
+
+.card p{
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 1.1rem;
+}
+
+/*footer*/
+footer{
+    display: flex;
+    text-align: right;
+    padding: 0px 24px 0px 24px;
+    justify-content: space-between;
+}
+
+footer div p{
+    font-family: 'Roboto Mono', 'Roboto' sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 0.8rem;
+}
+
+.mobile{
+    display: none;
+}
+
+
+/*Versione mobile*/
+@media (max-width: 950px) {
+    nav{
+        flex-direction: row;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        padding: 8px;
+        height: 5%;
+    }
+
+    nav div.nav_button h4{
+        display: none;
+    }
+  
+
+    div#main article#video-frame{
+        width: 100%;
+        margin: 8px 24px;
+    }
+
+    div.show-case{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card{
+        margin: 8px;
+        height: 30vh;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card img{
+        margin-right: 8px;
+        height: 24vh;
+        width: calc(24vh*16/9);
+    }
+
+    header div#info{
+        display: none;
+    }
+
+    div#main nav div div.subscription{
+        display: none;
+    }
+
+    .desktop{
+        display:none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    nav div.nav_button:hover{
+        background-color: #101010;
+    }
+
+    header div#search div{
+        display: flex;
+        align-items: center;
+    }
+
+    header div#search div img{
+        border-radius: 100%;
+    }
+
+    header div#search{
+        width: 90%;
+    }
+
+    header, header div#overlay{
+        height: 30vh;
+    }
+
+    footer{
+        margin-bottom: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .card{
+        margin: 8px;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10%;
+    }
+
+    header div#overlay{
+        display: none;
+    }
+
+    header{
+        position: fixed;
+        top: 0px;
+        background-image: none;
+        box-shadow: none;
+        width: 100%;
+        height: 10%;
+    }
+
+    article#video-frame section.genre{
+        margin-top: 20%;
+    }
+
+    header div#search{
+        box-shadow: 0px 0px 20px black;
+    }
+
+}
