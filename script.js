@@ -220,7 +220,7 @@ function showsearch(){
 }
 
 function create_card(sezione, elemento, preferiti){
-    if(preferiti===true){
+    if(preferiti){
         _pref='preferiti';
         _img='https://raw.githubusercontent.com/Caggegi/mhw2/master/img/icons/heart-plus.svg';
     } else{
@@ -246,10 +246,10 @@ function create_card(sezione, elemento, preferiti){
     plus.src=_img;
     plus.dataset.codice = elemento.id;
     plus.dataset.tipo = elemento.tipo;
+    plus.classList.add(_pref);
     info.src="https://raw.githubusercontent.com/Caggegi/mhw2/master/img/icons/information.svg";
     info.dataset.codice = elemento.id;
     info.dataset.tipo = elemento.tipo;
-    plus.classList.add(_pref);
     info.classList.add("info");
     about.appendChild(titolo);
     about.appendChild(creator);
