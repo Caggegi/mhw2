@@ -1,7 +1,8 @@
 
-    var film=0;
-    var musica=0;
-    var gameplay=0;
+    let film=0;
+    let musica=0;
+    let gameplay=0;
+    let altro=0;
     for(let elemento of video){
         if(elemento.tipo=='film'){
             film++;
@@ -9,6 +10,8 @@
             musica++;
         } else if(elemento.tipo == 'gameplay'){
             gameplay++;
+        } else{
+            altro++;
         }
     }
     if(film===0){
@@ -32,15 +35,24 @@
         document.querySelector("section#gameplay").classList.remove("hide");
         document.querySelector("section#gameplay").classList.add("show");
     }
+    if(altro===0){
+        document.querySelector("section#altro").classList.add("hide");
+        document.querySelector("section#altro").classList.remove("show");
+    } else{
+        document.querySelector("section#altro").classList.remove("hide");
+        document.querySelector("section#altro").classList.add("show");
+    }
     
     for(let elemento of video){
-        var sezione;
+        let sezione=undefined;
         if(elemento.tipo=='film'){
             sezione = document.querySelector("section#film div.show-case");
         } else if(elemento.tipo=='musica'){
             sezione = document.querySelector("section#musica div.show-case");
         } else if(elemento.tipo == 'gameplay'){
             sezione = document.querySelector("section#gameplay div.show-case");
+        } else{
+            sezione = document.querySelector("section#altro div.show-case");
         }
         create_card(sezione, elemento, true);
     }
@@ -52,8 +64,7 @@ const ricerca = [];
 function mostraDescrizione(event){
     const button = event.currentTarget;
     const cards = document.querySelectorAll("div.card");
-    console.log("mostro"+button.dataset.tipo+button.dataset.codice);
-    for(card of cards){
+    for(let card of cards){
         if(card.dataset.codice === button.dataset.codice && card.dataset.tipo === button.dataset.tipo){
             const descrizione = card.querySelector("p.hide");
             if (descrizione !== null){
@@ -77,7 +88,11 @@ function aggiungiPreferiti(event){
         document.querySelector("section#preferiti").classList.add("show");
         document.querySelector("section#preferiti").classList.remove("hide");
     }
-    for(elemento of video){
+    if(ricerca.length!==0){
+        document.querySelector("section#preferiti").classList.add("hide");
+        document.querySelector("section#preferiti").classList.remove("show");
+    }
+    for(let elemento of video){
         if(elemento.tipo===type && elemento.id===id){
             if(preferiti.indexOf(elemento)===-1){
                 preferiti.push(elemento);
@@ -93,12 +108,12 @@ function rimuoviPreferiti(event){
     const id = event.currentTarget.dataset.codice;
     const cards = document.querySelectorAll("section#preferiti div.card");
     const sezione = document.querySelector("section#preferiti div");
-    for(card of cards){
+    for(let card of cards){
         if(card.dataset.tipo==type && card.dataset.codice==id){
             sezione.removeChild(card);
         }
     }
-    for(pref of preferiti){
+    for(let pref of preferiti){
         if(pref.tipo===type && pref.id===id){
             preferiti.splice(preferiti.indexOf(pref),1);
         }
@@ -111,13 +126,13 @@ function rimuoviPreferiti(event){
 
 
 const info_button = document.querySelectorAll("div.card div img.info");
-for (button of info_button){
+for (let button of info_button){
     button.addEventListener("click", mostraDescrizione);
 }
 
 
 const favourites = document.querySelectorAll("div.card div img.preferiti");
-for (button of favourites){
+for (let button of favourites){
     button.addEventListener("click", aggiungiPreferiti);
 }
 
@@ -125,16 +140,29 @@ for (button of favourites){
 function avviaRicerca(){
     ricerca.splice(0, ricerca.length);
     const barra_di_ricerca = document.querySelector("header div#search input#search");
-    testo = barra_di_ricerca.value;
+    const testo = barra_di_ricerca.value;
     const sezione_ricerca = document.querySelector("section#ricerca div.show-case");
     while(sezione_ricerca.firstChild){
         sezione_ricerca.removeChild(sezione_ricerca.firstChild);
     }
     if(testo!==""){
         for(let content of video){
-            if(content.titolo.toLowerCase().includes(testo.toLowerCase()) || content.creator.toLowerCase().includes(testo.toLowerCase())){
+            //MIA SOLUZIONE
+            /*if(content.titolo.toLowerCase().includes(testo.toLowerCase()) 
+            || content.creator.toLowerCase().includes(testo.toLowerCase())){
                 ricerca.push(content);
-                console.log(sezione_ricerca);
+                create_card(sezione_ricerca, content, true);
+            }*/
+            //SOLUZIONE SUGGERITA DAL PROFESSORE SPAMPINATO
+            /*if(content.titolo.toLowerCase().search(testo.toLowerCase())!==-1
+            || content.creator.toLowerCase().search(testo.toLowerCase())!==-1){
+                ricerca.push(content);
+                create_card(sezione_ricerca, content, true);
+            }*/
+            //SOLUZIONE SUGGERITA DAL PROFESSORE PALAZZO
+            if(content.titolo.toLowerCase().indexOf(testo.toLowerCase())!==-1
+            || content.creator.toLowerCase().indexOf(testo.toLowerCase())!==-1){
+                ricerca.push(content);
                 create_card(sezione_ricerca, content, true);
             }
             }
@@ -154,12 +182,22 @@ barra_di_ricerca.addEventListener("keyup", avviaRicerca);
 function hidesearch(){
     document.querySelector("section#ricerca").classList.add("hide");
     document.querySelector("section#ricerca").classList.remove("show");
-    document.querySelector("section#film").classList.remove("hide");
-    document.querySelector("section#film").classList.add("show");
-    document.querySelector("section#musica").classList.remove("hide");
-    document.querySelector("section#musica").classList.add("show");
-    document.querySelector("section#gameplay").classList.remove("hide");
-    document.querySelector("section#gameplay").classList.add("show");
+    if(film!==0){
+        document.querySelector("section#film").classList.remove("hide");
+        document.querySelector("section#film").classList.add("show");
+    }
+    if(musica!==0){
+        document.querySelector("section#musica").classList.remove("hide");
+        document.querySelector("section#musica").classList.add("show");
+    }
+    if(gameplay!==0){
+        document.querySelector("section#gameplay").classList.remove("hide");
+        document.querySelector("section#gameplay").classList.add("show");
+    }
+    if(altro!==0){
+        document.querySelector("section#altro").classList.remove("hide");
+        document.querySelector("section#altro").classList.add("show");
+    }
     if(preferiti.length!==0){
         document.querySelector("section#preferiti").classList.remove("hide");
         document.querySelector("section#preferiti").classList.add("show");
@@ -177,15 +215,17 @@ function showsearch(){
     document.querySelector("section#gameplay").classList.add("hide");
     document.querySelector("section#preferiti").classList.remove("show");
     document.querySelector("section#preferiti").classList.add("hide");
+    document.querySelector("section#altro").classList.remove("show");
+    document.querySelector("section#altro").classList.add("hide");
 }
 
 function create_card(sezione, elemento, preferiti){
     if(preferiti===true){
         _pref='preferiti';
-        _img='img/heart-plus.svg';
+        _img='https://raw.githubusercontent.com/Caggegi/mhw2/master/img/icons/heart-plus.svg';
     } else{
         _pref='rimuovi';
-        _img='img/heart-minus.svg';
+        _img='https://raw.githubusercontent.com/Caggegi/mhw2/master/img/icons/heart-minus.svg';
     }
     const carta = document.createElement("div");
     carta.classList.add("card");
@@ -206,7 +246,7 @@ function create_card(sezione, elemento, preferiti){
     plus.src=_img;
     plus.dataset.codice = elemento.id;
     plus.dataset.tipo = elemento.tipo;
-    info.src="img/information.svg";
+    info.src="https://raw.githubusercontent.com/Caggegi/mhw2/master/img/icons/information.svg";
     info.dataset.codice = elemento.id;
     info.dataset.tipo = elemento.tipo;
     plus.classList.add(_pref);
@@ -222,15 +262,15 @@ function create_card(sezione, elemento, preferiti){
     carta.dataset.tipo = elemento.tipo;
     sezione.appendChild(carta);
     const not_favourites = document.querySelectorAll("div.card div img.rimuovi");
-    for (pulsante of not_favourites){
+    for (let pulsante of not_favourites){
         pulsante.addEventListener("click", rimuoviPreferiti);
     }
     const favourites = document.querySelectorAll("div.card div img.preferiti");
-    for (pulsante of favourites){
+    for (let pulsante of favourites){
         pulsante.addEventListener("click", aggiungiPreferiti);
     }
     const info_button = document.querySelectorAll("div.card div img.info");
-    for (button of info_button){
+    for (let button of info_button){
         button.addEventListener("click", mostraDescrizione);
     }
 }
