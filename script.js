@@ -179,7 +179,13 @@ function avviaRicerca(){
 const barra_di_ricerca = document.querySelector("header div#search input#search");
 barra_di_ricerca.addEventListener("keyup", avviaRicerca);
 
-function hidesearch(){
+const mostraPreferiti = document.querySelector("div#preferiti");
+const mostraHome = document.querySelector("div#home");
+
+mostraPreferiti.addEventListener("click", showpref);
+mostraHome.addEventListener("click", hidesearch);
+
+function hidesearch(){ 
     document.querySelector("section#ricerca").classList.add("hide");
     document.querySelector("section#ricerca").classList.remove("show");
     if(film!==0){
@@ -201,6 +207,9 @@ function hidesearch(){
     if(preferiti.length!==0){
         document.querySelector("section#preferiti").classList.remove("hide");
         document.querySelector("section#preferiti").classList.add("show");
+    } else{
+        document.querySelector("section#preferiti").classList.add("hide");
+        document.querySelector("section#preferiti").classList.remove("show");
     }
 }
 
@@ -215,6 +224,21 @@ function showsearch(){
     document.querySelector("section#gameplay").classList.add("hide");
     document.querySelector("section#preferiti").classList.remove("show");
     document.querySelector("section#preferiti").classList.add("hide");
+    document.querySelector("section#altro").classList.remove("show");
+    document.querySelector("section#altro").classList.add("hide");
+}
+
+function showpref(){
+    document.querySelector("section#preferiti").classList.add("show");
+    document.querySelector("section#preferiti").classList.remove("hide");
+    document.querySelector("section#film").classList.remove("show");
+    document.querySelector("section#film").classList.add("hide");
+    document.querySelector("section#musica").classList.remove("show");
+    document.querySelector("section#musica").classList.add("hide");
+    document.querySelector("section#gameplay").classList.remove("show");
+    document.querySelector("section#gameplay").classList.add("hide");
+    document.querySelector("section#ricerca").classList.remove("show");
+    document.querySelector("section#ricerca").classList.add("hide");
     document.querySelector("section#altro").classList.remove("show");
     document.querySelector("section#altro").classList.add("hide");
 }

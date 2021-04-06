@@ -1,29 +1,28 @@
 const video = [
     {
-        titolo: 'Il Re Leone',
-        immagine: 'https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_header_poststreet_18276_ada305ce.jpeg?region=0,0,2048,879',
-        creator: 'Disney',
-        descrizione: 'The Lion King is a 1994 American animated musical drama film produced by Walt Disney Feature Animation and released by Walt Disney Pictures. It is the 32nd Disney animated feature film, and the fifth animated film produced during a period known as the Disney Renaissance...',
-        id: '000',
-        tipo: 'film'
-        
-      },
-      {
-          titolo: 'Soul',
-          immagine: 'https://www.nerdpool.it/wp-content/uploads/2021/03/soul-cover-disney-pixar-np.jpeg',
-          creator: 'Disney',
-          descrizione: 'Soul is a 2020 American computer-animated fantasy comedy-drama film produced by Pixar Animation Studios and released by Walt Disney Pictures...',
-          id: '001',
-          tipo: 'film'
-      },
-      {
-          titolo: 'Collateral Beauty',
-          immagine: 'https://www.latestatamagazine.it/wp-content/uploads/2021/01/Collateral-Beauty.jpg',
-          creator: 'Warner Bros. Pictures',
-          descrizione: 'Collateral Beauty is a 2016 American fantasy drama film directed by David Frankel and written by Allan Loeb. The film stars an ensemble cast of Will Smith, Edward Norton, Keira Knightley, Michael Peña, Naomie Harris, Jacob Latimore, Kate Winslet, and Helen Mirren.',
-          id: '002',
-          tipo: 'film'
-      },
+       titolo: 'Il Re Leone',
+       immagine: 'https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_header_poststreet_18276_ada305ce.jpeg?region=0,0,2048,879',
+       creator: 'Disney',
+       descrizione: 'The Lion King is a 1994 American animated musical drama film produced by Walt Disney Feature Animation and released by Walt Disney Pictures. It is the 32nd Disney animated feature film, and the fifth animated film produced during a period known as the Disney Renaissance...',
+       id: '000',
+       tipo: 'film'
+    },
+    {
+         titolo: 'Soul',
+         immagine: 'https://www.nerdpool.it/wp-content/uploads/2021/03/soul-cover-disney-pixar-np.jpeg',
+         creator: 'Disney',
+         descrizione: 'Soul is a 2020 American computer-animated fantasy comedy-drama film produced by Pixar Animation Studios and released by Walt Disney Pictures...',
+         id: '001',
+         tipo: 'film'
+    },
+    {
+         titolo: 'Collateral Beauty',
+         immagine: 'https://www.latestatamagazine.it/wp-content/uploads/2021/01/Collateral-Beauty.jpg',
+         creator: 'Warner Bros. Pictures',
+         descrizione: 'Collateral Beauty is a 2016 American fantasy drama film directed by David Frankel and written by Allan Loeb. The film stars an ensemble cast of Will Smith, Edward Norton, Keira Knightley, Michael Peña, Naomie Harris, Jacob Latimore, Kate Winslet, and Helen Mirren.',
+         id: '002',
+         tipo: 'film'
+    },
     {
         titolo: 'Voce',
         immagine: 'https://www.oaplus.it/wp-content/uploads/2021/03/Madame-Cover-Voce-Singolo-Sanremo-2021.jpg',
