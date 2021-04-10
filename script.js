@@ -63,67 +63,66 @@ const ricerca = [];
 
 function mostraDescrizione(event){
     const button = event.currentTarget;
-    const cards = document.querySelectorAll("div.card");
-    for(let card of cards){
-        if(card.dataset.codice === button.dataset.codice && card.dataset.tipo === button.dataset.tipo){
-            const descrizione = card.querySelector("p.hide");
-            if (descrizione !== null){
-                descrizione.classList.add("show");
-                descrizione.classList.remove("hide");
-            }
-            else{
-                const descrizione = card.querySelector("p.description");
-                descrizione.classList.add("hide");
-                descrizione.classList.remove("show");
-            }
-        }
+    const descrizione = button.parentNode.querySelector("p.hide");
+    if (descrizione !== null){
+        descrizione.classList.add("show");
+        descrizione.classList.remove("hide");
     }
-
+    else{
+        const descrizione = button.parentNode.querySelector("p.description");
+        descrizione.classList.add("hide");
+        descrizione.classList.remove("show");
+    }
 }
 
 function aggiungiPreferiti(event){
-    const type = event.currentTarget.dataset.tipo;
-    const id = event.currentTarget.dataset.codice;
     if(preferiti.length===0){
         document.querySelector("section#preferiti").classList.add("show");
         document.querySelector("section#preferiti").classList.remove("hide");
+        document.querySelector("#no_pref").classList.add("hide");
+        document.querySelector("#no_pref").classList.remove("show");
     }
     if(ricerca.length!==0){
         document.querySelector("section#preferiti").classList.add("hide");
         document.querySelector("section#preferiti").classList.remove("show");
     }
-    for(let elemento of video){
-        if(elemento.tipo===type && elemento.id===id){
-            if(preferiti.indexOf(elemento)===-1){
-                preferiti.push(elemento);
-                sezione = document.querySelector("section#preferiti div.show-case");
-                create_card(sezione, elemento, false);
-            }
+    const card = event.currentTarget.parentNode.parentNode;
+    const elemento = {
+        titolo: card.querySelector("div h5").textContent,
+        immagine: card.querySelector("img.image").src,
+        creator: card.querySelector("div p").textContent,
+        descrizione: card.querySelector("div p.description").textContent,
+        id: card.dataset.codice,
+        tipo: card.dataset.tipo
+    }
+    let isPresent = false;
+    for(temp of preferiti){
+        if(temp.tipo === elemento.tipo && temp.id === elemento.id){
+            isPresent = true;
         }
+    }
+    if(!isPresent){
+        preferiti.push(elemento);
+        sezione = document.querySelector("section#preferiti div.show-case");
+        create_card(sezione, elemento, false);
     }
 }
 
 function rimuoviPreferiti(event){
-    const type = event.currentTarget.dataset.tipo;
-    const id = event.currentTarget.dataset.codice;
-    const cards = document.querySelectorAll("section#preferiti div.card");
-    const sezione = document.querySelector("section#preferiti div");
-    for(let card of cards){
-        if(card.dataset.tipo==type && card.dataset.codice==id){
-            sezione.removeChild(card);
-        }
-    }
-    for(let pref of preferiti){
-        if(pref.tipo===type && pref.id===id){
-            preferiti.splice(preferiti.indexOf(pref),1);
+    const card = event.currentTarget.parentNode.parentNode;
+    for(elemento of preferiti){
+        if(elemento.tipo === card.dataset.tipo && elemento.id === card.dataset.codice){
+            preferiti.splice(preferiti.indexOf(elemento),1);
+            card.parentNode.removeChild(card);
         }
     }
     if(preferiti.length===0){
         document.querySelector("section#preferiti").classList.add("hide");
         document.querySelector("section#preferiti").classList.remove("show");
+        document.querySelector("#no_pref").classList.add("show");
+        document.querySelector("#no_pref").classList.remove("hide");
     }
 }
-
 
 const info_button = document.querySelectorAll("div.card div img.info");
 for (let button of info_button){
@@ -147,19 +146,6 @@ function avviaRicerca(){
     }
     if(testo!==""){
         for(let content of video){
-            //MIA SOLUZIONE
-            /*if(content.titolo.toLowerCase().includes(testo.toLowerCase()) 
-            || content.creator.toLowerCase().includes(testo.toLowerCase())){
-                ricerca.push(content);
-                create_card(sezione_ricerca, content, true);
-            }*/
-            //SOLUZIONE SUGGERITA DAL PROFESSORE SPAMPINATO
-            /*if(content.titolo.toLowerCase().search(testo.toLowerCase())!==-1
-            || content.creator.toLowerCase().search(testo.toLowerCase())!==-1){
-                ricerca.push(content);
-                create_card(sezione_ricerca, content, true);
-            }*/
-            //SOLUZIONE SUGGERITA DAL PROFESSORE PALAZZO
             if(content.titolo.toLowerCase().indexOf(testo.toLowerCase())!==-1
             || content.creator.toLowerCase().indexOf(testo.toLowerCase())!==-1){
                 ricerca.push(content);
