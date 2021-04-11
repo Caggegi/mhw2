@@ -13,6 +13,6 @@ Con questo mini homework la barra di ricerca diverrà funzionante e sarà mostra
 
 ### Credits:
 Rosario Caggegi o46002042     
-[![GitHub - mhw2](https://github.com/Caggegi/mhw1/blob/master/img/Light/github.svg)](https://github.com/Caggegi/mhw1)
+[![GitHub - mhw2](https://github.com/Caggegi/mhw1/blob/master/img/Light/github.svg)](https://github.com/Caggegi/mhw2)
 [![Instagram](https://github.com/Caggegi/mhw1/blob/master/img/Light/instagram.svg)](https://www.instagram.com/rosario.caggegi/)
 [![Facebook](https://github.com/Caggegi/mhw1/blob/master/img/Light/facebook.svg)](https://www.facebook.com/rosario.caggegi.142/)
