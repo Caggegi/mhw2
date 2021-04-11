@@ -9,7 +9,7 @@ Gli utenti premium possono abbonarsi o meno a un Creator così da supportarlo.
 Con questo mini homework la barra di ricerca diverrà funzionante e sarà mostrata una nuova sezione tra i generi che riporta i preferiti, inoltre i video mostreranno la loro descrizione senza accedere direttamente al contenuto ma tramite il tasto info.
 
 ### Website:
-•https://caggegi.github.io/mhw2/
+• https://caggegi.github.io/mhw2/mhw2.html
 
 ### Credits:
 Rosario Caggegi o46002042     
