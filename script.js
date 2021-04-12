@@ -141,9 +141,6 @@ function avviaRicerca(){
     const barra_di_ricerca = document.querySelector("header div#search input#search");
     const testo = barra_di_ricerca.value;
     const sezione_ricerca = document.querySelector("section#ricerca div.show-case");
-    /*while(sezione_ricerca.firstChild){
-        sezione_ricerca.removeChild(sezione_ricerca.firstChild);
-    }*/
     sezione_ricerca.innerHTML = '';
     if(testo!==""){
         for(let content of video){
